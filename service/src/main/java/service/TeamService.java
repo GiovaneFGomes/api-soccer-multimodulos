@@ -1,14 +1,13 @@
-package com.giovane.soccer.service;
+package service;
 
-import com.giovane.soccer.exceptions.badrequest.BadRequestException;
-import com.giovane.soccer.exceptions.notfound.NotFoundException;
-import com.giovane.soccer.mapper.TeamMapper;
-import com.giovane.soccer.model.Team;
-import com.giovane.soccer.model.dto.TeamRequestDto;
-import com.giovane.soccer.model.dto.TeamResponseDto;
+import badrequest.BadRequestException;
+import dto.TeamRequest;
+import dto.TeamResponse;
+import entity.Team;
 import lombok.AllArgsConstructor;
+import mapper.TeamMapper;
+import notfound.NotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,25 +16,26 @@ public class TeamService {
 
     private final TeamMapper mapper;
 
-    public TeamResponseDto saveTeam(TeamRequestDto team) {
+    public TeamResponse saveTeam(TeamRequest team) {
         Team team1 = team.createTeam(team);
         Long lines = mapper.insert(team1);
         if(lines >= 1) {
-            return new TeamResponseDto(team1);
+            return new TeamResponse(team1);
         }else {
             throw new BadRequestException("You sent a request that this server didn't understand");
         }
     }
 
-    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id){
-        TeamResponseDto id_not_found = mapper.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
+    public TeamResponse updateTeamById(TeamRequest team, Integer id){
+        TeamResponse id_not_found = mapper.findById(id)
+                .orElseThrow(() -> new NotFoundException("ID not found"));
         team.setId(id_not_found.getId());
         id_not_found.setName(team.getName());
         id_not_found.setStadium(team.getStadium());
         id_not_found.setCountry(team.getCountry());
         Long lines = mapper.update(id_not_found);
         System.out.println(lines);
-        return new TeamResponseDto(id_not_found);
+        return new TeamResponse(id_not_found);
     }
 
     public void deleteTeamById(Integer id) {
@@ -44,13 +44,13 @@ public class TeamService {
         mapper.deleteById(id);
     }
 
-    public TeamResponseDto findTeamById(Integer id){
+    public TeamResponse findTeamById(Integer id){
         Team team = mapper.findById(id)
                 .orElseThrow(() -> new NotFoundException("ID not found"));
-        return new TeamResponseDto(team);
+        return new TeamResponse(team);
     }
 
-    public List<TeamResponseDto> findAllTeams(){
+    public List<TeamResponse> findAllTeams(){
         return mapper.findAll();
     }
 

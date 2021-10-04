@@ -1,6 +1,6 @@
-package com.giovane.soccer.model.dto;
+package dto;
 
-import com.giovane.soccer.model.Team;
+import entity.Team;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Builder
 @Data
-public class TeamRequestDto {
+public class TeamRequest {
 
     @Schema(hidden = true)
     private Integer id;
@@ -33,14 +33,14 @@ public class TeamRequestDto {
     @Schema(description = "This is a football team's name country", example = "Spain")
     private String country;
 
-    public TeamRequestDto(Team teams) {
+    public TeamRequest(Team teams) {
         this.id = teams.getId();
         this.name = teams.getName();
         this.stadium = teams.getStadium();
         this.country = teams.getCountry();
     }
 
-    public Team createTeam(TeamRequestDto team){
+    public Team createTeam(TeamRequest team){
         return Team.builder()
                 .name(team.getName())
                 .stadium(team.getStadium())

@@ -4,3 +4,6 @@ include 'model'
 include 'controller'
 include 'mapper'
 include 'service'
+include 'exceptions'
+include 'annotations'
+
