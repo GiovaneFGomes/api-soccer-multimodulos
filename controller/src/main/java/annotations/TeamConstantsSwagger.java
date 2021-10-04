@@ -1,4 +1,4 @@
-package constants;
+package annotations;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

@@ -1,8 +1,8 @@
-package handler;
+package exceptions.handler;
 
-import details.ExceptionDetails;
-import details.MethodNotValidDetails;
-import notfound.NotFoundException;
+import exceptions.details.ExceptionDetails;
+import exceptions.details.MethodNotValidDetails;
+import exceptions.notfound.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

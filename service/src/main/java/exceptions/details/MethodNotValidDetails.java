@@ -1,7 +1,8 @@
-package details;
+package exceptions.details;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
+
 import java.time.Instant;
 import java.util.Map;
 
