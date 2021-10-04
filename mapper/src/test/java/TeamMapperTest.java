@@ -1,14 +1,12 @@
-package com.giovane.soccer.mapper;
-
-import com.giovane.soccer.model.Team;
-import com.giovane.soccer.model.dto.TeamResponseDto;
+import dto.TeamResponse;
+import entity.Team;
+import mapper.TeamMapper;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +34,7 @@ class TeamMapperTest {
         Team team = createTeam();
         teamMapper.findAll();
         teamMapper.update(team);
-        Optional<TeamResponseDto>team1 = teamMapper.findById(team.getId());
+        Optional<TeamResponse>team1 = teamMapper.findById(team.getId());
         assertEquals(1,team1);
     }
 
@@ -59,7 +57,7 @@ class TeamMapperTest {
     @Test
     void delete_team_by_Id() {
         teamMapper.deleteById(1);
-        List<TeamResponseDto> listCliente = teamMapper.findAll();
+        List<TeamResponse> listCliente = teamMapper.findAll();
         assertEquals(0, listCliente.size());
     }
 

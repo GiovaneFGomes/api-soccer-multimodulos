@@ -1,8 +1,5 @@
-package com.giovane.soccer.controller;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.giovane.soccer.model.dto.TeamRequestDto;
-import com.giovane.soccer.service.TeamService;
+import dto.TeamRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import service.TeamService;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -34,7 +32,7 @@ class TeamsControllerTest {
 
     @Test
     void save_team_201() throws Exception {
-        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
+        TeamRequest teamRequestDto = TeamRequest.builder()
                 .id(1)
                 .name("Internacional")
                 .stadium("Beira-rio")
@@ -48,7 +46,7 @@ class TeamsControllerTest {
 
     @Test
     void save_team_400() throws Exception {
-        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
+        TeamRequest teamRequestDto = TeamRequest.builder()
                 .id(1)
                 .name("Internacional")
                 .stadium("Beira-rio")
@@ -62,7 +60,7 @@ class TeamsControllerTest {
 
     @Test
     public void update_team_204() throws Exception {
-        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
+        TeamRequest teamRequestDto = TeamRequest.builder()
                 .name("Barcelona")
                 .stadium("Camp Nou")
                 .country("Spain")
@@ -75,7 +73,7 @@ class TeamsControllerTest {
 
     @Test
     public void update_team_400() throws Exception {
-        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
+        TeamRequest teamRequestDto = TeamRequest.builder()
                 .name("Barcelona")
                 .stadium("Camp Nou")
                 .country("Spain")
