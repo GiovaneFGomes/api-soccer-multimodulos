@@ -15,14 +15,14 @@ public interface TeamMapper {
             "        VALUES (#{team.name, jdbcType=VARCHAR},                      " +
             "                #{team.stadium, jdbcType=VARCHAR},                   " +
             "                #{team.country, jdbcType=VARCHAR})                   " )
-    void insert(@Param("team") Team team);
+    Long insert(@Param("team") Team team);
 
     @Update(value = " UPDATE teams                                         " +
             " SET    name_team=#{team.name, jdbcType=VARCHAR},             " +
             "        name_stadium=#{team.stadium, jdbcType=VARCHAR},       " +
             "        name_country=#{team.country, jdbcType=VARCHAR}        " +
             " WHERE  id=#{team.id};                                        " )
-    void update(@Param("team") Team team);
+    Long update(@Param("team") Team team);
 
     @Select("SELECT id AS id, name_team, name_stadium, name_country FROM teams")
     @Results(id = "teamResultId" , value ={

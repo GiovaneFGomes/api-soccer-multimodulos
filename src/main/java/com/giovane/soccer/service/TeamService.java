@@ -18,15 +18,23 @@ public class TeamService {
 
     public TeamResponseDto saveTeam(TeamRequestDto team) {
         Team team1 = team.createTeam(team);
-        mapper.insert(team1);
-        return new TeamResponseDto(team1);
+        Long linhas = mapper.insert(team1);
+        if(linhas >= 1){
+            return new TeamResponseDto(team1);
+        }else{
+            throw new NotFoundException("wfewrf");
+        }
     }
 
     public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id){
-        mapper.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
-        Team team1 = team.createTeam(team);
-        mapper.update(team1);
-        return new TeamResponseDto(team1);
+        TeamResponseDto id_not_found = mapper.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
+        team.setId(id_not_found.getId());
+        id_not_found.setName(team.getName());
+        id_not_found.setStadium(team.getStadium());
+        id_not_found.setCountry(team.getCountry());
+        Long linhas = mapper.update(id_not_found);
+        System.out.println(linhas);
+        return new TeamResponseDto(id_not_found);
     }
 
     public void deleteTeamById(Integer id) {

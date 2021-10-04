@@ -15,7 +15,9 @@ import static com.giovane.soccer.annotations.TeamConstantsSwagger.*;
 @Retention(RetentionPolicy.RUNTIME)
 @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Team was created"),
-        @ApiResponse(responseCode = "400", description = "An incorrect request has been sent")
+        @ApiResponse(responseCode = "400", description = "An incorrect request has been sent"),
+        @ApiResponse(responseCode = "400", description = "Body contains invalid JSON. Min 3 and Max 40 characters"),
+        @ApiResponse(responseCode = "400", description = "Body contains invalid JSON. Must not be blank")
 })
 @Operation(summary = TEAM_SAVE_SUMMARY, description = TEAM_SAVE_DESCRIPTION)
 public @interface TeamSaveStandardsCodes {
