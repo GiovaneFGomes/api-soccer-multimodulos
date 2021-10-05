@@ -1,15 +1,21 @@
-package exceptions.handler;
+package com.giovane.soccer.exceptions.handler;
 
-import exceptions.details.ExceptionDetails;
-import exceptions.details.MethodNotValidDetails;
-import exceptions.notfound.NotFoundException;
+import com.giovane.soccer.exceptions.details.ExceptionDetails;
+import com.giovane.soccer.exceptions.details.MethodNotValidDetails;
+import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.*;
-import java.time.Instant;
-import java.util.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static org.springframework.http.HttpStatus.*;
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

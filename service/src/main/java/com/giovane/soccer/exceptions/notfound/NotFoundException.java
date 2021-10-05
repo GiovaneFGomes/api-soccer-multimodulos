@@ -1,7 +1,8 @@
-package exceptions.notfound;
+package com.giovane.soccer.exceptions.notfound;
 
-import static org.springframework.http.HttpStatus.*;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @ResponseStatus(NOT_FOUND)
 public class NotFoundException extends RuntimeException {

@@ -1,9 +1,10 @@
-package service;
+package com.giovane.soccer.service;
 
 import com.giovane.soccer.TeamRepository;
-import com.giovane.soccer.dto.*;
+import com.giovane.soccer.dto.TeamRequest;
+import com.giovane.soccer.dto.TeamResponse;
 import com.giovane.soccer.entity.Team;
-import exceptions.notfound.NotFoundException;
+import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,8 +43,7 @@ public class TeamService {
     }
 
 //    public List<TeamResponse> findAllTeams(){
-//       List<Team> team = teamRepository.findAll();
-//
+//       teamRepository.findAll();
 //    }
 
 }

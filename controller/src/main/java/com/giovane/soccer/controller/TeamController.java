@@ -5,8 +5,10 @@ import com.giovane.soccer.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import service.TeamService;
+import com.giovane.soccer.service.TeamService;
 import javax.validation.Valid;
+import java.util.List;
+
 import static org.springframework.http.HttpStatus.*;
 
 @AllArgsConstructor
