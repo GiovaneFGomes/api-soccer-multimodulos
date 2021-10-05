@@ -1,57 +1,49 @@
 package service;
 
-import badrequest.BadRequestException;
-import dto.TeamRequest;
-import dto.TeamResponse;
-import entity.Team;
+import com.giovane.soccer.TeamRepository;
+import com.giovane.soccer.dto.*;
+import com.giovane.soccer.entity.Team;
+import exceptions.notfound.NotFoundException;
 import lombok.AllArgsConstructor;
-import mapper.TeamMapper;
-import notfound.NotFoundException;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @AllArgsConstructor
 @Service
 public class TeamService {
 
-    private final TeamMapper mapper;
+    private final TeamRepository teamRepository;
 
     public TeamResponse saveTeam(TeamRequest team) {
         Team team1 = team.createTeam(team);
-        Long lines = mapper.insert(team1);
-        if(lines >= 1) {
-            return new TeamResponse(team1);
-        }else {
-            throw new BadRequestException("You sent a request that this server didn't understand");
-        }
+        Team team2 = teamRepository.save(team1);
+        return new TeamResponse(team2);
     }
 
     public TeamResponse updateTeamById(TeamRequest team, Integer id){
-        TeamResponse id_not_found = mapper.findById(id)
+      teamRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("ID not found"));
-        team.setId(id_not_found.getId());
-        id_not_found.setName(team.getName());
-        id_not_found.setStadium(team.getStadium());
-        id_not_found.setCountry(team.getCountry());
-        Long lines = mapper.update(id_not_found);
-        System.out.println(lines);
-        return new TeamResponse(id_not_found);
+      Team team1 = team.createTeam(team);
+      Team team2 = teamRepository.save(team1);
+      return new TeamResponse(team2);
     }
 
     public void deleteTeamById(Integer id) {
-        mapper.findById(id)
+        teamRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("ID not found"));
-        mapper.deleteById(id);
+        teamRepository.deleteById(id);
     }
 
     public TeamResponse findTeamById(Integer id){
-        Team team = mapper.findById(id)
+        Team team = teamRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("ID not found"));
         return new TeamResponse(team);
     }
 
-    public List<TeamResponse> findAllTeams(){
-        return mapper.findAll();
-    }
+//    public List<TeamResponse> findAllTeams(){
+//       List<Team> team = teamRepository.findAll();
+//
+//    }
 
 }

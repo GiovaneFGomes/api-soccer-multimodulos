@@ -3,26 +3,23 @@ package exceptions.handler;
 import exceptions.details.ExceptionDetails;
 import exceptions.details.MethodNotValidDetails;
 import exceptions.notfound.NotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 import java.time.Instant;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(NOT_FOUND)
     public ExceptionDetails handlerNotFoundException(NotFoundException e){
         ExceptionDetails exceptionDetails;
         exceptionDetails = ExceptionDetails.builder()
-                .status(HttpStatus.NOT_FOUND.value())
+                .status(NOT_FOUND.value())
                 .title("Not found")
                 .timestamp(Instant.now())
                 .details(e.getMessage())
@@ -32,7 +29,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(BAD_REQUEST)
     public MethodNotValidDetails handlerMethodNotValid(MethodArgumentNotValidException e){
         Map<String, String> error = new HashMap<>();
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
@@ -40,22 +37,22 @@ public class GlobalExceptionHandler {
 
         MethodNotValidDetails methodNotValidDetails;
         methodNotValidDetails = MethodNotValidDetails.builder()
-                .status(HttpStatus.BAD_REQUEST.value())
+                .status(BAD_REQUEST.value())
                 .title("Body contains invalid JSON")
                 .timestamp(Instant.now())
                 .details(error)
-                .developerMessage("Error! Check the number of characters allowed.")
+                .developerMessage("Error! Check the body constraints.")
                 .build();
         return methodNotValidDetails;
     }
 
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(BAD_REQUEST)
     public ExceptionDetails handlerBadRequest(Exception e){
         ExceptionDetails exceptionDetails;
         exceptionDetails = ExceptionDetails.builder()
-                .status(HttpStatus.BAD_REQUEST.value())
+                .status(BAD_REQUEST.value())
                 .title("Bad request")
                 .timestamp(Instant.now())
                 .details("You sent a request that this server didn't understand")

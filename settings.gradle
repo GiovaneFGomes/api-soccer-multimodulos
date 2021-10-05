@@ -1,8 +1,6 @@
 rootProject.name = 'soccer'
 
 include 'model'
-include 'controller'
-include 'mapper'
+include 'repository'
 include 'service'
-include 'exceptions'
-include 'annotations'
+include 'controller'

@@ -1,18 +1,16 @@
-package annotations;
+package com.giovane.soccer.annotations;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import static java.lang.annotation.RetentionPolicy.*;
+import static java.lang.annotation.ElementType.*;
+import static com.giovane.soccer.annotations.TeamConstantsSwagger.*;
 
-import static annotations.TeamConstantsSwagger.*;
-
-@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE, ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
+@Target({ METHOD, ANNOTATION_TYPE, TYPE })
+@Retention(RUNTIME)
 @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Shows all football teams"),
 })

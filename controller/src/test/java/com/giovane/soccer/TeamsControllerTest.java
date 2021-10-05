@@ -1,5 +1,7 @@
+package com.giovane.soccer;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.TeamRequest;
+import com.giovane.soccer.dto.TeamRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +78,7 @@ class TeamsControllerTest {
         TeamRequest teamRequestDto = TeamRequest.builder()
                 .name("Barcelona")
                 .stadium("Camp Nou")
+
                 .country("Spain")
                 .build();
         mockMvc.perform(put("/api/v1/soccer/team/g")

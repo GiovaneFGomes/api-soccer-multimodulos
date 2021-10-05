@@ -1,7 +1,6 @@
-package annotations;
+package com.giovane.soccer.annotations;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TeamConstantsSwagger {

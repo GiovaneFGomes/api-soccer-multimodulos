@@ -1,6 +1,6 @@
-package dto;
+package com.giovane.soccer.dto;
 
-import entity.Team;
+import com.giovane.soccer.entity.Team;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
