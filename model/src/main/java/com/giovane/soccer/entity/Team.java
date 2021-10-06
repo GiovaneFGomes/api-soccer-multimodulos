@@ -1,8 +1,6 @@
 package com.giovane.soccer.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 

@@ -1,5 +1,6 @@
 package com.giovane.soccer.controller;
 
+import com.giovane.soccer.satelite.Satelite;
 import com.giovane.soccer.service.SateliteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,8 @@ public class SateliteController {
 
     @ResponseStatus(OK)
     @GetMapping
-    public String findSatelite() {
-        service.findSatelite();
-        return "";
+    public Satelite findSatelite() {
+       return service.findSatelite();
     }
 
 }
