@@ -1,4 +1,4 @@
-package com.giovane.soccer.controller;
+package com.giovane.soccer.contract.v1;
 
 import com.giovane.soccer.satelite.Satelite;
 import com.giovane.soccer.service.SateliteService;

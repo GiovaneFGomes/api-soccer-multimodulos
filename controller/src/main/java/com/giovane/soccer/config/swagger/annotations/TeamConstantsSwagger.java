@@ -1,4 +1,4 @@
-package com.giovane.soccer.annotations;
+package com.giovane.soccer.config.swagger.annotations;
 
 import lombok.*;
 

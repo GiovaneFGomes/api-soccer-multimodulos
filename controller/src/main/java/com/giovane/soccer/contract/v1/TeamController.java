@@ -1,6 +1,6 @@
-package com.giovane.soccer.controller;
+package com.giovane.soccer.contract.v1;
 
-import com.giovane.soccer.annotations.*;
+import com.giovane.soccer.config.swagger.annotations.*;
 import com.giovane.soccer.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

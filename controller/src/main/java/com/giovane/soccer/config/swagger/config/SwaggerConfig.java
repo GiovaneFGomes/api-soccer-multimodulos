@@ -1,4 +1,4 @@
-package com.giovane.soccer.swagger;
+package com.giovane.soccer.config.swagger.config;
 
 import io.swagger.v3.oas.models.*;
 import io.swagger.v3.oas.models.info.*;
@@ -23,7 +23,7 @@ public class SwaggerConfig {
                                 .url("https://www.apache.org/licenses/LICENSE-2.0.html")))
                 .externalDocs(new ExternalDocumentation()
                         .description("Link to the project on GitHub")
-                        .url("https://github.com/GiovaneFGomes/futebol-api"));
+                        .url(""));
     }
 
 }
