@@ -1,6 +1,6 @@
 package com.giovane.soccer.contract.v1;
 
-import com.giovane.soccer.config.swagger.annotations.*;
+import com.giovane.soccer.config.swagger.annotations.standardcodes.*;
 import com.giovane.soccer.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,35 +18,35 @@ public class TeamController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    @TeamSaveStandardsCodes
+    @TeamSaveStandardsCode
     public TeamResponse saveTeam(@RequestBody @Valid TeamRequest team) {
         return service.saveTeam(team);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping(path = "/{id}")
-    @TeamPutStandardCodes
+    @TeamPutStandardCode
     public void updateTeamById(@RequestBody @Valid TeamRequest team, @PathVariable("id") Integer id) {
         service.updateTeamById(team, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping(path = "/{id}")
-    @TeamDeleteStandardCodes
+    @TeamDeleteStandardCode
     public void deleteTeamById(@PathVariable("id") Integer id) {
         service.deleteTeamById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping(path = "/{id}")
-    @TeamGetStandardCodes
+    @TeamGetStandardCode
     public TeamResponse findTeamById(@PathVariable("id") Integer id) {
         return service.findTeamById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping(path = "/findAll")
-    @TeamGetAllStandardCodes
+    @TeamGetAllStandardCode
     public List<TeamResponse> findAllTeams() {
         return service.findAllTeams();
     }
