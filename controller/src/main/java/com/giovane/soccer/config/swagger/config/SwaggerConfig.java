@@ -23,7 +23,7 @@ public class SwaggerConfig {
                                 .url("https://www.apache.org/licenses/LICENSE-2.0.html")))
                 .externalDocs(new ExternalDocumentation()
                         .description("Link to the project on GitHub")
-                        .url(""));
+                        .url("https://github.com/GiovaneFGomes/futebol-api-multimodulos"));
     }
 
 }
