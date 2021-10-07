@@ -18,8 +18,10 @@ import static com.giovane.soccer.config.swagger.annotations.constants.TeamConsta
 @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Team was created",
                 content = @Content(schema = @Schema(implementation = TeamResponse.class), mediaType = MediaType.APPLICATION_JSON_VALUE)),
-        @ApiResponse(responseCode = "400", description = "An incorrect request has been sent", content = @Content(mediaType = "application/json")),
-        @ApiResponse(responseCode = "400", description = "Body did not respect the constraints", content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "400", description = "An incorrect request has been sent",
+                content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "400", description = "Body did not respect the constraints",
+                content = @Content(mediaType = "application/json")),
 })
 @Operation(summary = TEAM_SAVE_SUMMARY_OP, description = TEAM_SAVE_DESCRIPTION_OP)
 public @interface TeamSaveStandardsCode {

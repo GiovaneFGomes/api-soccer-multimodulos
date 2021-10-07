@@ -1,6 +1,7 @@
 package com.giovane.soccer.exceptions.handler;
 
 import com.giovane.soccer.exceptions.details.ExceptionDetails;
+import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;
 import com.giovane.soccer.exceptions.details.MethodNotValidDetails;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import org.springframework.validation.FieldError;
@@ -22,16 +23,15 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(NOT_FOUND)
-    public ExceptionDetails handlerNotFoundException(NotFoundException e){
-        ExceptionDetails exceptionDetails;
-        exceptionDetails = ExceptionDetails.builder()
+    public ExceptionDetailsNotFound handlerNotFoundException(NotFoundException e){
+       return ExceptionDetailsNotFound.builder()
                 .status(NOT_FOUND.value())
                 .title("Not found")
                 .timestamp(Instant.now())
                 .details(e.getMessage())
                 .developerMessage("Include a valid ID. Make sure it exists.")
                 .build();
-        return exceptionDetails;
+
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -41,30 +41,26 @@ public class GlobalExceptionHandler {
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         fieldErrors.forEach(p -> error.put(p.getField(), p.getDefaultMessage()));
 
-        MethodNotValidDetails methodNotValidDetails;
-        methodNotValidDetails = MethodNotValidDetails.builder()
+        return MethodNotValidDetails.builder()
                 .status(BAD_REQUEST.value())
                 .title("Body contains invalid JSON")
                 .timestamp(Instant.now())
                 .details(error)
                 .developerMessage("Error! Check the body constraints.")
                 .build();
-        return methodNotValidDetails;
     }
 
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(BAD_REQUEST)
     public ExceptionDetails handlerBadRequest(Exception e){
-        ExceptionDetails exceptionDetails;
-        exceptionDetails = ExceptionDetails.builder()
+       return ExceptionDetails.builder()
                 .status(BAD_REQUEST.value())
                 .title("Bad request")
                 .timestamp(Instant.now())
                 .details("You sent a request that this server didn't understand")
                 .developerMessage("Check the request")
                 .build();
-        return exceptionDetails;
     }
 
 }
