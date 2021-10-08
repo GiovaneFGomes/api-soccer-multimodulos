@@ -1,8 +1,8 @@
 package com.giovane.soccer.entity;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
+import lombok.experimental.SuperBuilder;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,13 +11,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "teams")
 public class Team {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(name = "name_team")
     private String name;
+
     @Column(name = "name_stadium")
     private String stadium;
+
     @Column(name = "name_country")
     private String country;
+
 }

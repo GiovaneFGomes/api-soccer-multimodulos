@@ -15,7 +15,8 @@ allprojects {
 	apply plugin: 'java'
 	apply plugin: 'io.spring.dependency-management'
 
-	group = 'com.giovane'
+	// troquei, se der errado é aqui
+	group = 'com.giovane.soccer'
 	version = '0.0.1-SNAPSHOT'
 	sourceCompatibility = '16'
 

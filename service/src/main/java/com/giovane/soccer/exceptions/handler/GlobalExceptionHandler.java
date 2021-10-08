@@ -1,22 +1,17 @@
 package com.giovane.soccer.exceptions.handler;
 
-import com.giovane.soccer.exceptions.details.ExceptionDetails;
-import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;
-import com.giovane.soccer.exceptions.details.ExceptionMethodNotValidDetails;
-import com.giovane.soccer.exceptions.notfound.NotFoundException;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.time.Instant;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import java.time.Instant;
+import java.util.HashMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.FieldError;
+import com.giovane.soccer.exceptions.notfound.NotFoundException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;
+import com.giovane.soccer.exceptions.details.ExceptionDetailsBadRequest;
+import com.giovane.soccer.exceptions.details.ExceptionMethodNotValidDetails;
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -50,11 +45,10 @@ public class GlobalExceptionHandler {
                 .build();
     }
 
-
     @ExceptionHandler(Exception.class)
     @ResponseStatus(BAD_REQUEST)
-    public ExceptionDetails handlerBadRequest(Exception e){
-       return ExceptionDetails.builder()
+    public ExceptionDetailsBadRequest handlerBadRequest(){
+       return ExceptionDetailsBadRequest.builder()
                 .status(BAD_REQUEST.value())
                 .title("Bad request")
                 .timestamp(Instant.now())

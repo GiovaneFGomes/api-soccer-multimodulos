@@ -1,12 +1,9 @@
 package com.giovane.soccer.dto;
 
+import lombok.*;
 import com.giovane.soccer.entity.Team;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import io.swagger.annotations.ApiModelProperty;
 
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor

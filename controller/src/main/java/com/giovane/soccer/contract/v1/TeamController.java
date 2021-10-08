@@ -1,12 +1,12 @@
 package com.giovane.soccer.contract.v1;
 
-import com.giovane.soccer.config.swagger.annotations.standardcodes.*;
-import com.giovane.soccer.dto.*;
-import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-import com.giovane.soccer.service.TeamService;
-import javax.validation.Valid;
 import java.util.List;
+import com.giovane.soccer.dto.*;
+import com.giovane.soccer.service.TeamService;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import lombok.AllArgsConstructor;
+import com.giovane.soccer.config.swagger.annotations.standardcodes.*;
 import static org.springframework.http.HttpStatus.*;
 
 @AllArgsConstructor
@@ -32,14 +32,14 @@ public class TeamController {
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping(path = "/{id}")
-    @TeamDeleteStandardCode
+    @TeamDeleteIdStandardCode
     public void deleteTeamById(@PathVariable("id") Integer id) {
         service.deleteTeamById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping(path = "/{id}")
-    @TeamGetStandardCode
+    @TeamGetIdStandardCode
     public TeamResponse findTeamById(@PathVariable("id") Integer id) {
         return service.findTeamById(id);
     }

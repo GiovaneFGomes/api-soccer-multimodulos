@@ -1,15 +1,14 @@
 package com.giovane.soccer.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import com.giovane.soccer.entity.Team;
 import com.giovane.soccer.TeamRepository;
 import com.giovane.soccer.dto.TeamRequest;
 import com.giovane.soccer.dto.TeamResponse;
-import com.giovane.soccer.entity.Team;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service

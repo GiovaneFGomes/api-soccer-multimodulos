@@ -10,9 +10,9 @@ public class TeamConstantsParameterSwagger {
             "The required body must be in JSON";
 
     public static final String TEAM_ID_DESCRIPTION_PARAM =
-            "Id of team (teams can be fetched via the /api/v1/soccer/team/findAll endpoint)";
+            "Teams can be fetched via the /api/v1/soccer/team/findAll endpoint)";
 
     public static final String TEAM_FIND_BY_ID_DESCRIPTION_PARAM =
-            "Id of team (teams can be saved via the /api/v1/soccer/team endpoint)";
+            "Teams can be saved via the /api/v1/soccer/team endpoint)";
 
 }
