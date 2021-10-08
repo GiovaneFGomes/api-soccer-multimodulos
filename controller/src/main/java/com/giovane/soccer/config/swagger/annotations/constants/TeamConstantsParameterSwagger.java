@@ -7,6 +7,9 @@ import static lombok.AccessLevel.*;
 public class TeamConstantsParameterSwagger {
 
     public static final String TEAM_DESCRIPTION_PARAM =
+            "The required body must be in JSON";
+
+    public static final String TEAM_ID_DESCRIPTION_PARAM =
             "Id of team (teams can be fetched via the /api/v1/soccer/team/findAll endpoint)";
 
     public static final String TEAM_FIND_BY_ID_DESCRIPTION_PARAM =

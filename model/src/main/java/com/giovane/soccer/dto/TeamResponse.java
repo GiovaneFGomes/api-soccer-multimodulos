@@ -1,7 +1,7 @@
 package com.giovane.soccer.dto;
 
 import com.giovane.soccer.entity.Team;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,16 +15,16 @@ import lombok.experimental.SuperBuilder;
 @Data
 public class TeamResponse extends Team {
 
-    @Schema(example = "1")
+    @ApiModelProperty(example = "1")
     private Integer id;
 
-    @Schema(example = "Real Madrid")
+    @ApiModelProperty(example = "Real Madrid")
     private String name;
 
-    @Schema(example = "Santiago Bernabéu")
+    @ApiModelProperty(example = "Santiago Bernabéu")
     private String stadium;
 
-    @Schema(example = "Spain")
+    @ApiModelProperty(example = "Spain")
     private String country;
 
     public TeamResponse(Team team) {

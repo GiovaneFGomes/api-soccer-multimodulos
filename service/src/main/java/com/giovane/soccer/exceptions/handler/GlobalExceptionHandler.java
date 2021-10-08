@@ -2,7 +2,7 @@ package com.giovane.soccer.exceptions.handler;
 
 import com.giovane.soccer.exceptions.details.ExceptionDetails;
 import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;
-import com.giovane.soccer.exceptions.details.MethodNotValidDetails;
+import com.giovane.soccer.exceptions.details.ExceptionMethodNotValidDetails;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -36,12 +36,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(BAD_REQUEST)
-    public MethodNotValidDetails handlerMethodNotValid(MethodArgumentNotValidException e){
+    public ExceptionMethodNotValidDetails handlerMethodNotValid(MethodArgumentNotValidException e){
         Map<String, String> error = new HashMap<>();
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         fieldErrors.forEach(p -> error.put(p.getField(), p.getDefaultMessage()));
 
-        return MethodNotValidDetails.builder()
+        return ExceptionMethodNotValidDetails.builder()
                 .status(BAD_REQUEST.value())
                 .title("Body contains invalid JSON")
                 .timestamp(Instant.now())

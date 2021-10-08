@@ -2,33 +2,24 @@ package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
 
+import io.swagger.annotations.*;
 import com.giovane.soccer.dto.TeamResponse;
 import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;
-import io.swagger.v3.oas.annotations.*;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.*;
-import org.springframework.http.MediaType;
-
 import static java.lang.annotation.ElementType.*;
-import static io.swagger.v3.oas.annotations.enums.ParameterIn.*;
 import static com.giovane.soccer.config.swagger.annotations.constants.TeamConstantsParameterSwagger.*;
 import static com.giovane.soccer.config.swagger.annotations.constants.TeamConstantsOperationSwagger.*;
 
 @Target({ METHOD, ANNOTATION_TYPE, TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Found a single football team",
-                content = @Content(schema = @Schema(implementation = TeamResponse.class), mediaType = MediaType.APPLICATION_JSON_VALUE)),
-        @ApiResponse(responseCode = "400", description = "An incorrect request has been sent",
-                content = @Content(schema = @Schema(hidden = true))),
-        @ApiResponse(responseCode = "404", description = "Team id does not exist",
-                content = @Content(schema = @Schema(implementation = ExceptionDetailsNotFound.class), mediaType = MediaType.APPLICATION_JSON_VALUE))
+        @ApiResponse(code = 200, message = "Found a single football team", response = TeamResponse.class),
+        @ApiResponse(code = 400, message = "An incorrect request has been sent"),
+        @ApiResponse(code = 404, message = "Team id does not exist", response = ExceptionDetailsNotFound.class)
 })
-@Parameter(name = "id", example = "10", required = true,
-        description = TEAM_FIND_BY_ID_DESCRIPTION_PARAM, in = PATH
-)
-@Operation(summary = TEAM_FIND_SUMMARY_OP, description = TEAM_FIND_DESCRIPTION_OP)
+@ApiImplicitParams({
+        @ApiImplicitParam(name = "id", required = true, value = TEAM_FIND_BY_ID_DESCRIPTION_PARAM)
+})
+@ApiOperation(value = TEAM_FIND_SUMMARY_OP, notes = TEAM_FIND_DESCRIPTION_OP)
 public @interface TeamGetStandardCode {
 
 }

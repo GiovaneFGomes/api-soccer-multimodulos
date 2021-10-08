@@ -8,7 +8,7 @@ import java.util.Map;
 
 @SuperBuilder
 @Data
-public class MethodNotValidDetails {
+public class ExceptionMethodNotValidDetails {
     private Integer status;
     private String title;
     private Instant timestamp;
