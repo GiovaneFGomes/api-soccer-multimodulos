@@ -2,7 +2,6 @@ package com.giovane.soccer.contract.v1;
 
 import java.util.List;
 import com.giovane.soccer.dto.*;
-import com.giovane.soccer.entity.Team;
 import com.giovane.soccer.service.TeamService;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -20,14 +19,14 @@ public class TeamController {
     @ResponseStatus(CREATED)
     @PostMapping
     @TeamSaveStandardsCode
-    public TeamResponseDto saveTeam(@RequestBody @Valid Team team) {
+    public TeamResponseDto saveTeam(@RequestBody @Valid TeamRequestDto team) {
         return teamService.saveTeam(team);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping(path = "/{id}")
     @TeamPutStandardCode
-    public TeamResponseDto updateTeamById(@RequestBody @Valid Team team, @PathVariable("id") Integer id) {
+    public TeamResponseDto updateTeamById(@RequestBody @Valid TeamRequestDto team, @PathVariable("id") Integer id) {
        return teamService.updateTeamById(team, id);
     }
 

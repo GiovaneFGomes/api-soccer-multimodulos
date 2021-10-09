@@ -2,6 +2,7 @@ package com.giovane.soccer.service;
 
 import java.util.List;
 import java.util.Optional;
+import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
 import com.giovane.soccer.entity.Team;
 import com.giovane.soccer.TeamRepository;
@@ -11,23 +12,25 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
-@Component
+@Component //ver se coloca na impl ou na interface
 public class TeamServiceImpl implements TeamService{
 
     private final TeamRepository teamRepository;
 
-    public TeamResponseDto saveTeam(Team team) {
-        Team teamSave = teamRepository.save(team);
+    public TeamResponseDto saveTeam(TeamRequestDto team) {
+        Team team1 = TeamMapper.INSTANCE.toTeamEntity(team);
+        Team teamSave = teamRepository.save(team1);
         return Optional.of(TeamMapper.INSTANCE.toTeamResponseDto(teamSave))
                 .orElseThrow(() -> new NotFoundException("erf"));
     }
+    // TODO arrumar exceptions ainda dos orElse
 
-    public TeamResponseDto updateTeamById(Team team, Integer id){
-        Team teamId = teamRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("ID not found"));
+    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id){
+        Team teamId = teamRepository.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
         team.setId(teamId.getId());
-        teamRepository.save(team);
-        return Optional.of(TeamMapper.INSTANCE.toTeamResponseDto(team))
+        Team team1 = TeamMapper.INSTANCE.toTeamEntity(team);
+        teamRepository.save(team1);
+        return Optional.of(TeamMapper.INSTANCE.toTeamResponseDto(team1))
                 .orElseThrow(() -> new NotFoundException("wef"));
     }
 

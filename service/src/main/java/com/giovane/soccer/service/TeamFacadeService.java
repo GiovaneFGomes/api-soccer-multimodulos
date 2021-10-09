@@ -1,7 +1,7 @@
 package com.giovane.soccer.service;
 
+import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
-import com.giovane.soccer.entity.Team;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -11,11 +11,11 @@ public class TeamFacadeService implements TeamService{
 
     private final TeamService teamService;
 
-    public TeamResponseDto saveTeam(Team team) {
+    public TeamResponseDto saveTeam(TeamRequestDto team) {
         return teamService.saveTeam(team);
     }
 
-    public TeamResponseDto updateTeamById(Team team, Integer id) {
+    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id) {
         return teamService.updateTeamById(team, id);
     }
 

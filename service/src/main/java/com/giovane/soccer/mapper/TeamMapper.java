@@ -1,6 +1,6 @@
 package com.giovane.soccer.mapper;
 
-import com.giovane.soccer.dto.TeamDto;
+import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
 import com.giovane.soccer.entity.Team;
 import org.mapstruct.Mapper;
@@ -13,6 +13,6 @@ public interface TeamMapper {
 
     TeamResponseDto toTeamResponseDto(Team team);
 
-    TeamDto toTeamDto(Team team);
+    Team toTeamEntity(TeamRequestDto team);
 
 }
