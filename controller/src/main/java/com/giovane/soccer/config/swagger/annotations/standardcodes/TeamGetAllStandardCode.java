@@ -2,14 +2,14 @@ package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
 import io.swagger.annotations.*;
-import com.giovane.soccer.dto.TeamResponse;
+import com.giovane.soccer.dto.TeamResponseDto;
 import static java.lang.annotation.ElementType.*;
 import static com.giovane.soccer.config.swagger.annotations.constants.TeamConstantsOperationSwagger.*;
 
 @Target({ METHOD, ANNOTATION_TYPE, TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @ApiResponses(value = {
-        @ApiResponse(code =  200, message = "Found all football teams", response = TeamResponse.class)
+        @ApiResponse(code =  200, message = "Found all football teams", response = TeamResponseDto.class)
 })
 @ApiOperation(value = TEAM_FIND_ALL_SUMMARY_OP, notes = TEAM_FIND_ALL_DESCRIPTION_OP)
 public @interface TeamGetAllStandardCode {

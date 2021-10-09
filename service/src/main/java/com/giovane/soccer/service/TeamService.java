@@ -1,56 +1,20 @@
 package com.giovane.soccer.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import com.giovane.soccer.dto.TeamDto;
+import com.giovane.soccer.dto.TeamResponseDto;
 import com.giovane.soccer.entity.Team;
-import com.giovane.soccer.TeamRepository;
-import com.giovane.soccer.dto.TeamRequest;
-import com.giovane.soccer.dto.TeamResponse;
-import com.giovane.soccer.exceptions.notfound.NotFoundException;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
-@Service
-public class TeamService {
+import java.util.List;
 
-    private final TeamRepository teamRepository;
+public interface TeamService {
 
-    public TeamResponse saveTeam(TeamRequest team) {
-        Team team1 = team.createTeam(team);
-        Team team2 = teamRepository.save(team1);
-        return new TeamResponse(team2);
-    }
+    TeamResponseDto saveTeam(Team id);
 
-    public void updateTeamById(TeamRequest team, Integer id){
-        Team teamId = teamRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("ID not found"));
-        Team team1 = team.createTeam(team);
-        team1.setId(teamId.getId());
-        teamRepository.save(team1);
-    }
+    TeamResponseDto updateTeamById(Team team, Integer id);
 
-    public void deleteTeamById(Integer id) {
-        teamRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("ID not found"));
-        teamRepository.deleteById(id);
-    }
+    void deleteTeamById(Integer id);
 
-    public TeamResponse findTeamById(Integer id){
-        Team team = teamRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("ID not found"));
-        return new TeamResponse(team);
-    }
+    TeamResponseDto findTeamById(Integer id);
 
-    public List<TeamResponse> findAllTeams() {
-        return teamRepository.findAll().stream().map(e -> {
-            TeamResponse dto = new TeamResponse();
-            dto.setId(e.getId());
-            dto.setName(e.getName());
-            dto.setCountry(e.getCountry());
-            dto.setStadium(e.getStadium());
-            return dto;
-        }).collect(Collectors.toList());
-    }
-
+    List<TeamResponseDto> findAllTeams();
 }

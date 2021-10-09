@@ -1,7 +1,7 @@
 package com.giovane.soccer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.giovane.soccer.dto.TeamRequest;
+import com.giovane.soccer.dto.TeamRequestDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import com.giovane.soccer.service.TeamService;
+import com.giovane.soccer.service.TeamServiceImpl;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -30,11 +30,11 @@ class TeamsControllerTest {
     ObjectMapper objectMapper;
 
     @MockBean
-    TeamService teamService;
+    TeamServiceImpl teamServiceImpl;
 
     @Test
     void save_team_201() throws Exception {
-        TeamRequest teamRequestDto = TeamRequest.builder()
+        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
                 .id(1)
                 .name("Internacional")
                 .stadium("Beira-rio")
@@ -48,7 +48,7 @@ class TeamsControllerTest {
 
     @Test
     void save_team_400() throws Exception {
-        TeamRequest teamRequestDto = TeamRequest.builder()
+        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
                 .id(1)
                 .name("Internacional")
                 .stadium("Beira-rio")
@@ -62,7 +62,7 @@ class TeamsControllerTest {
 
     @Test
     public void update_team_204() throws Exception {
-        TeamRequest teamRequestDto = TeamRequest.builder()
+        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
                 .name("Barcelona")
                 .stadium("Camp Nou")
                 .country("Spain")
@@ -75,7 +75,7 @@ class TeamsControllerTest {
 
     @Test
     public void update_team_400() throws Exception {
-        TeamRequest teamRequestDto = TeamRequest.builder()
+        TeamRequestDto teamRequestDto = TeamRequestDto.builder()
                 .name("Barcelona")
                 .stadium("Camp Nou")
 

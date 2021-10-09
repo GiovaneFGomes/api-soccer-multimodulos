@@ -2,6 +2,7 @@ package com.giovane.soccer.contract.v1;
 
 import java.util.List;
 import com.giovane.soccer.dto.*;
+import com.giovane.soccer.entity.Team;
 import com.giovane.soccer.service.TeamService;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -14,41 +15,41 @@ import static org.springframework.http.HttpStatus.*;
 @RequestMapping(value = "/api/v1/soccer/team")
 public class TeamController {
 
-    private final TeamService service;
+    private final TeamService teamService;
 
     @ResponseStatus(CREATED)
     @PostMapping
     @TeamSaveStandardsCode
-    public TeamResponse saveTeam(@RequestBody @Valid TeamRequest team) {
-        return service.saveTeam(team);
+    public TeamResponseDto saveTeam(@RequestBody @Valid Team team) {
+        return teamService.saveTeam(team);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping(path = "/{id}")
     @TeamPutStandardCode
-    public void updateTeamById(@RequestBody @Valid TeamRequest team, @PathVariable("id") Integer id) {
-        service.updateTeamById(team, id);
+    public TeamResponseDto updateTeamById(@RequestBody @Valid Team team, @PathVariable("id") Integer id) {
+       return teamService.updateTeamById(team, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping(path = "/{id}")
     @TeamDeleteIdStandardCode
     public void deleteTeamById(@PathVariable("id") Integer id) {
-        service.deleteTeamById(id);
+        teamService.deleteTeamById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping(path = "/{id}")
     @TeamGetIdStandardCode
-    public TeamResponse findTeamById(@PathVariable("id") Integer id) {
-        return service.findTeamById(id);
+    public TeamResponseDto findTeamById(@PathVariable("id") Integer id) {
+        return teamService.findTeamById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping(path = "/findAll")
     @TeamGetAllStandardCode
-    public List<TeamResponse> findAllTeams() {
-        return service.findAllTeams();
+    public List<TeamResponseDto> findAllTeams() {
+        return teamService.findAllTeams();
     }
 
 }

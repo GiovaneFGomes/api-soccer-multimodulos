@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 @NoArgsConstructor
 @Builder
 @Data
-public class TeamRequest {
+public class TeamRequestDto {
 
     @ApiModelProperty(hidden = true)
     private Integer id;
@@ -29,14 +29,14 @@ public class TeamRequest {
     @ApiModelProperty(example = "Spain")
     private String country;
 
-    public TeamRequest(Team teams) {
+    public TeamRequestDto(Team teams) {
         this.id = teams.getId();
         this.name = teams.getName();
         this.stadium = teams.getStadium();
         this.country = teams.getCountry();
     }
 
-    public Team createTeam(TeamRequest team){
+    public Team createTeam(TeamRequestDto team){
         return Team.builder()
                 .name(team.getName())
                 .stadium(team.getStadium())

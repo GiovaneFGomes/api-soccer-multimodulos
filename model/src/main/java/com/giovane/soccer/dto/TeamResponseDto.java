@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 @NoArgsConstructor
 @SuperBuilder
 @Data
-public class TeamResponse extends Team {
+public class TeamResponseDto extends Team {
 
     @ApiModelProperty(example = "1")
     private Integer id;
@@ -24,11 +24,12 @@ public class TeamResponse extends Team {
     @ApiModelProperty(example = "Spain")
     private String country;
 
-    public TeamResponse(Team team) {
+    public TeamResponseDto(Team team) {
         this.id = team.getId();
         this.name = team.getName();
         this.stadium = team.getStadium();
         this.country = team.getCountry();
     }
+
 
 }
