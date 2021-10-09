@@ -1,4 +1,4 @@
-package com.giovane.soccer.entity;
+package com.giovane.soccer.entity.team;
 
 import lombok.*;
 import javax.persistence.*;

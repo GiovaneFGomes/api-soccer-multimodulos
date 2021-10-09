@@ -1,4 +1,4 @@
-package com.giovane.soccer.service;
+package com.giovane.soccer.service.team;
 
 import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 
 @AllArgsConstructor
-public class TeamFacadeService implements TeamService{
+public class TeamServiceImpl implements TeamServiceFacade {
 
     private final TeamService teamService;
 

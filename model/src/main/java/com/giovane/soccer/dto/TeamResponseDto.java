@@ -1,7 +1,7 @@
 package com.giovane.soccer.dto;
 
 import lombok.*;
-import com.giovane.soccer.entity.Team;
+import com.giovane.soccer.entity.team.Team;
 import lombok.experimental.SuperBuilder;
 import io.swagger.annotations.ApiModelProperty;
 

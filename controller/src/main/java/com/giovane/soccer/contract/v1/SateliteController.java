@@ -1,7 +1,7 @@
 package com.giovane.soccer.contract.v1;
 
-import com.giovane.soccer.satelite.Satelite;
-import com.giovane.soccer.service.SateliteService;
+import com.giovane.soccer.entity.satelite.Satelite;
+import com.giovane.soccer.service.satelite.SateliteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

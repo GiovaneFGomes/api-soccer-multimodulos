@@ -1,11 +1,14 @@
-package com.giovane.soccer.satelite;
+package com.giovane.soccer.entity.satelite;
 
 import lombok.*;
+
+import javax.persistence.Entity;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
+@Entity
 public class Satelite {
     private String name;
     private int id;

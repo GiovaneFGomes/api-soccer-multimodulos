@@ -1,10 +1,10 @@
-package com.giovane.soccer.service;
+package com.giovane.soccer.service.team;
 
 import java.util.List;
 import java.util.Optional;
 import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
-import com.giovane.soccer.entity.Team;
+import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.TeamRepository;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import com.giovane.soccer.mapper.TeamMapper;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Component //ver se coloca na impl ou na interface
-public class TeamServiceImpl implements TeamService{
+public class TeamService {
 
     private final TeamRepository teamRepository;
 

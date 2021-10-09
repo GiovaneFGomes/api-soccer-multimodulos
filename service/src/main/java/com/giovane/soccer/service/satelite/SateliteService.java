@@ -1,6 +1,6 @@
-package com.giovane.soccer.service;
+package com.giovane.soccer.service.satelite;
 
-import com.giovane.soccer.satelite.Satelite;
+import com.giovane.soccer.entity.satelite.Satelite;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

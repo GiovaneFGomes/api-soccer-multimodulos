@@ -12,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import com.giovane.soccer.service.TeamServiceImpl;
+import com.giovane.soccer.service.team.TeamService;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -30,7 +30,7 @@ class TeamsControllerTest {
     ObjectMapper objectMapper;
 
     @MockBean
-    TeamServiceImpl teamServiceImpl;
+    TeamService teamServiceImpl;
 
     @Test
     void save_team_201() throws Exception {

@@ -1,10 +1,10 @@
-package com.giovane.soccer.service;
+package com.giovane.soccer.service.team;
 
 import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
 import java.util.List;
 
-public interface TeamService {
+public interface TeamServiceFacade {
 
     TeamResponseDto saveTeam(TeamRequestDto id);
 

@@ -2,7 +2,7 @@ package com.giovane.soccer.contract.v1;
 
 import java.util.List;
 import com.giovane.soccer.dto.*;
-import com.giovane.soccer.service.TeamService;
+import com.giovane.soccer.service.team.TeamServiceFacade;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import static org.springframework.http.HttpStatus.*;
 @RequestMapping(value = "/api/v1/soccer/team")
 public class TeamController {
 
-    private final TeamService teamService;
+    private final TeamServiceFacade teamService;
 
     @ResponseStatus(CREATED)
     @PostMapping
