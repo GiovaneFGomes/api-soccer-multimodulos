@@ -12,7 +12,7 @@ import static org.springframework.http.HttpStatus.*;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "/api/v1/soccer/team")
-public class TeamController {
+public class TeamControllerv1 {
 
     private final TeamServiceFacade teamService;
 
@@ -26,8 +26,8 @@ public class TeamController {
     @ResponseStatus(NO_CONTENT)
     @PutMapping(path = "/{id}")
     @TeamPutStandardCode
-    public TeamResponseDto updateTeamById(@RequestBody @Valid TeamRequestDto team, @PathVariable("id") Integer id) {
-       return teamService.updateTeamById(team, id);
+    public void updateTeamById(@RequestBody @Valid TeamRequestDto team, @PathVariable("id") Integer id) {
+        teamService.updateTeamById(team, id);
     }
 
     @ResponseStatus(NO_CONTENT)

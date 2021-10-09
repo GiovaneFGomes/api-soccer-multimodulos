@@ -2,8 +2,11 @@ package com.giovane.soccer.service.team;
 
 import java.util.List;
 import java.util.Optional;
+
 import com.giovane.soccer.dto.TeamRequestDto;
+import com.giovane.soccer.dto.TeamRequestPatchDto;
 import com.giovane.soccer.dto.TeamResponseDto;
+import com.giovane.soccer.dto.TeamResponsePatchDto;
 import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.TeamRepository;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
@@ -25,12 +28,20 @@ public class TeamService {
     }
     // TODO arrumar exceptions ainda dos orElse
 
-    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id){
-        Team teamId = teamRepository.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
+    public void updateTeamById(TeamRequestDto team, Integer id){
+        Team teamId = teamRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("ID not found"));
         team.setId(teamId.getId());
         Team team1 = TeamMapper.INSTANCE.toTeamEntity(team);
         teamRepository.save(team1);
-        return Optional.of(TeamMapper.INSTANCE.toTeamResponseDto(team1))
+    }
+
+    public TeamResponsePatchDto patchTeamById(TeamRequestPatchDto team, Integer id){
+        Team teamId = teamRepository.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
+        team.setId(teamId.getId());
+        Team team1 = TeamMapper.INSTANCE.toTeamEntity2(team);
+        teamRepository.save(team1);
+        return Optional.of(TeamMapper.INSTANCE.toTeamResponsePatchDto(team1))
                 .orElseThrow(() -> new NotFoundException("wef"));
     }
 
