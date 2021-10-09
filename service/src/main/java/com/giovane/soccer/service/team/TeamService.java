@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
-@Component //ver se coloca na impl ou na interface
+@Component
 public class TeamService {
 
     private final TeamRepository teamRepository;

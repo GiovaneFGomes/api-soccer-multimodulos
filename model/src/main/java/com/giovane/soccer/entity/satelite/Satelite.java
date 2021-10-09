@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Builder
 @Data
-@Entity
 public class Satelite {
     private String name;
     private int id;

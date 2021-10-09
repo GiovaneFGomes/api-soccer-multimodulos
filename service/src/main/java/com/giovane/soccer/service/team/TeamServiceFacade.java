@@ -2,6 +2,8 @@ package com.giovane.soccer.service.team;
 
 import com.giovane.soccer.dto.TeamRequestDto;
 import com.giovane.soccer.dto.TeamResponseDto;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 public interface TeamServiceFacade {
