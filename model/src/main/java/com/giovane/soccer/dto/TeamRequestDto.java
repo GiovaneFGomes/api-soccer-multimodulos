@@ -2,7 +2,6 @@ package com.giovane.soccer.dto;
 
 import lombok.*;
 import javax.validation.constraints.*;
-
 import io.swagger.annotations.ApiModelProperty;
 
 @AllArgsConstructor

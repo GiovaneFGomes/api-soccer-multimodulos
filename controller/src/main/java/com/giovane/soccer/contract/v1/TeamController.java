@@ -12,7 +12,7 @@ import static org.springframework.http.HttpStatus.*;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "/api/v1/soccer/team")
-public class TeamControllerv1 {
+public class TeamController {
 
     private final TeamServiceFacade teamService;
 

@@ -1,16 +1,14 @@
 package com.giovane.soccer.dto;
 
 import lombok.*;
-import com.giovane.soccer.entity.team.Team;
 import lombok.experimental.SuperBuilder;
 import io.swagger.annotations.ApiModelProperty;
 
-@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
 @Data
-public class TeamResponseDto extends Team {
+public class TeamResponseDto {
 
     @ApiModelProperty(example = "1")
     private Integer id;

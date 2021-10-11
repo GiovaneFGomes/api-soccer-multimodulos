@@ -1,12 +1,9 @@
 package com.giovane.soccer.service.team;
 
 import com.giovane.soccer.dto.TeamRequestDto;
-import com.giovane.soccer.dto.TeamRequestPatchDto;
 import com.giovane.soccer.dto.TeamResponseDto;
-import com.giovane.soccer.dto.TeamResponsePatchDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @AllArgsConstructor
@@ -22,11 +19,6 @@ public class TeamServiceImpl implements TeamServiceFacade {
     public void updateTeamById(TeamRequestDto team, Integer id) {
         teamService.updateTeamById(team, id);
     }
-
-    public TeamResponsePatchDto patchTeamById(TeamRequestPatchDto team, Integer id) {
-        return teamService.patchTeamById(team, id);
-    }
-
 
     public void deleteTeamById(Integer id) {
         teamService.deleteTeamById(id);

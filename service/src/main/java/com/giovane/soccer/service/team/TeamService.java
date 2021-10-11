@@ -2,47 +2,36 @@ package com.giovane.soccer.service.team;
 
 import java.util.List;
 import java.util.Optional;
-
 import com.giovane.soccer.dto.TeamRequestDto;
-import com.giovane.soccer.dto.TeamRequestPatchDto;
 import com.giovane.soccer.dto.TeamResponseDto;
-import com.giovane.soccer.dto.TeamResponsePatchDto;
 import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.TeamRepository;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import com.giovane.soccer.mapper.TeamMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
-@Component
+@Service
 public class TeamService {
 
     private final TeamRepository teamRepository;
 
+    // TODO arrumar exceptions ainda dos orElse
+
     public TeamResponseDto saveTeam(TeamRequestDto team) {
-        Team team1 = TeamMapper.INSTANCE.toTeamEntity(team);
-        Team teamSave = teamRepository.save(team1);
+        Team teamEntity = TeamMapper.INSTANCE.toTeamEntity(team);
+        Team teamSave = teamRepository.save(teamEntity);
         return Optional.of(TeamMapper.INSTANCE.toTeamResponseDto(teamSave))
                 .orElseThrow(() -> new NotFoundException("erf"));
     }
-    // TODO arrumar exceptions ainda dos orElse
 
     public void updateTeamById(TeamRequestDto team, Integer id){
         Team teamId = teamRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("ID not found"));
         team.setId(teamId.getId());
-        Team team1 = TeamMapper.INSTANCE.toTeamEntity(team);
-        teamRepository.save(team1);
-    }
-
-    public TeamResponsePatchDto patchTeamById(TeamRequestPatchDto team, Integer id){
-        Team teamId = teamRepository.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
-        team.setId(teamId.getId());
-        Team team1 = TeamMapper.INSTANCE.toTeamEntity2(team);
-        teamRepository.save(team1);
-        return Optional.of(TeamMapper.INSTANCE.toTeamResponsePatchDto(team1))
-                .orElseThrow(() -> new NotFoundException("wef"));
+        Team teamSave = TeamMapper.INSTANCE.toTeamEntity(team);
+        teamRepository.save(teamSave);
     }
 
     public void deleteTeamById(Integer id) {

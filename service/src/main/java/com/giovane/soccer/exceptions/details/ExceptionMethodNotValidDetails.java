@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Data
 public class ExceptionMethodNotValidDetails {
+
     // TODO fazer o exemplo de schema pra esse tambem
     private Integer status;
     private String title;
