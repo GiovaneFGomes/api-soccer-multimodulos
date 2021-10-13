@@ -16,8 +16,8 @@ public class TeamServiceImpl implements TeamServiceFacade {
         return teamService.saveTeam(team);
     }
 
-    public void updateTeamById(TeamRequestDto team, Integer id) {
-        teamService.updateTeamById(team, id);
+    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id) {
+        return teamService.updateTeamById(team, id);
     }
 
     public void deleteTeamById(Integer id) {

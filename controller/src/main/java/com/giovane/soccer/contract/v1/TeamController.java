@@ -26,8 +26,8 @@ public class TeamController {
     @ResponseStatus(NO_CONTENT)
     @PutMapping(path = "/{id}")
     @TeamPutStandardCode
-    public void updateTeamById(@RequestBody @Valid TeamRequestDto team, @PathVariable("id") Integer id) {
-        teamService.updateTeamById(team, id);
+    public TeamResponseDto updateTeamById(@RequestBody @Valid TeamRequestDto team, @PathVariable("id") Integer id) {
+        return teamService.updateTeamById(team, id);
     }
 
     @ResponseStatus(NO_CONTENT)

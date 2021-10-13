@@ -30,10 +30,10 @@ allprojects {
 		implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 		implementation 'io.springfox:springfox-swagger2:3.0.0'
 		implementation 'io.springfox:springfox-swagger-ui:3.0.0'
-		compileOnly 'org.projectlombok:lombok:1.18.20'
+		compileOnly 'org.projectlombok:lombok:1.18.22'
 		runtimeOnly 'org.postgresql:postgresql:42.2.24.jre7'
 		runtimeOnly 'com.h2database:h2:1.4.200'
-		annotationProcessor 'org.projectlombok:lombok:1.18.20'
+		annotationProcessor 'org.projectlombok:lombok:1.18.22'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
 		annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 	}

@@ -26,12 +26,13 @@ public class TeamService {
                 .orElseThrow(() -> new NotFoundException("erf"));
     }
 
-    public void updateTeamById(TeamRequestDto team, Integer id){
-        Team teamId = teamRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("ID not found"));
+    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id){
+        Team teamId = teamRepository.findById(id).orElseThrow(() -> new NotFoundException("ID not found"));
         team.setId(teamId.getId());
-        Team teamSave = TeamMapper.INSTANCE.toTeamEntity(team);
-        teamRepository.save(teamSave);
+        Team teamEntity = TeamMapper.INSTANCE.toTeamEntity(team);
+        Team teamSave = teamRepository.save(teamEntity);
+        return Optional.of(TeamMapper.INSTANCE.toTeamResponseDto(teamSave))
+                .orElseThrow(() -> new NotFoundException("erf"));
     }
 
     public void deleteTeamById(Integer id) {

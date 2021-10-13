@@ -8,7 +8,7 @@ public interface TeamServiceFacade {
 
     TeamResponseDto saveTeam(TeamRequestDto id);
 
-    void updateTeamById(TeamRequestDto team, Integer id);
+    TeamResponseDto updateTeamById(TeamRequestDto team, Integer id);
 
     void deleteTeamById(Integer id);
 
