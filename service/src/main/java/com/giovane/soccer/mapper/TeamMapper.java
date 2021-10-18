@@ -1,8 +1,8 @@
 package com.giovane.soccer.mapper;
 
-import com.giovane.soccer.dto.TeamRequestDto;
-import com.giovane.soccer.dto.TeamResponseDto;
-import com.giovane.soccer.entity.team.Team;
+import com.giovane.soccer.model.dto.TeamRequestDto;
+import com.giovane.soccer.model.dto.TeamResponseDto;
+import com.giovane.soccer.model.entity.Team;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

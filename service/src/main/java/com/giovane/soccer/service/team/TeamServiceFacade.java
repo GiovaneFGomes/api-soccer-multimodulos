@@ -1,7 +1,8 @@
 package com.giovane.soccer.service.team;
 
-import com.giovane.soccer.dto.TeamRequestDto;
-import com.giovane.soccer.dto.TeamResponseDto;
+import com.giovane.soccer.model.dto.TeamRequestDto;
+import com.giovane.soccer.model.dto.TeamResponseDto;
+
 import java.util.List;
 
 public interface TeamServiceFacade {

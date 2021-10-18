@@ -3,8 +3,8 @@ package com.giovane.soccer.config.swagger.annotations.standardcodes;
 import java.lang.annotation.*;
 
 import com.giovane.soccer.exceptions.details.ExceptionDetailsBadRequest;
+import com.giovane.soccer.model.dto.TeamResponseDto;
 import io.swagger.annotations.*;
-import com.giovane.soccer.dto.TeamResponseDto;
 import java.lang.annotation.RetentionPolicy;
 import static java.lang.annotation.ElementType.*;
 import static com.giovane.soccer.config.swagger.annotations.constants.TeamConstantsParameterSwagger.*;

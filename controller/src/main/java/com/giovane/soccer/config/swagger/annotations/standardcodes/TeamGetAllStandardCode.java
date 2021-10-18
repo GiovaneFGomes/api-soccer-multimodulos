@@ -1,8 +1,9 @@
 package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
+
+import com.giovane.soccer.model.dto.TeamResponseDto;
 import io.swagger.annotations.*;
-import com.giovane.soccer.dto.TeamResponseDto;
 import static java.lang.annotation.ElementType.*;
 import static com.giovane.soccer.config.swagger.annotations.constants.TeamConstantsOperationSwagger.*;
 

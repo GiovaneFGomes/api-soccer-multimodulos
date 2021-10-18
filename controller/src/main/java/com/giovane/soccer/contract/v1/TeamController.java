@@ -1,7 +1,8 @@
 package com.giovane.soccer.contract.v1;
 
 import java.util.List;
-import com.giovane.soccer.dto.*;
+import com.giovane.soccer.model.dto.TeamRequestDto;
+import com.giovane.soccer.model.dto.TeamResponseDto;
 import com.giovane.soccer.service.team.TeamServiceFacade;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;

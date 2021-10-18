@@ -1,6 +1,6 @@
-package com.giovane.soccer;
+package com.giovane.soccer.repository;
 
-import com.giovane.soccer.entity.team.Team;
+import com.giovane.soccer.model.entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

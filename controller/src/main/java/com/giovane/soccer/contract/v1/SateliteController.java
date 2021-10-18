@@ -1,23 +1,19 @@
 package com.giovane.soccer.contract.v1;
 
-import com.giovane.soccer.entity.satelite.Satelite;
-import com.giovane.soccer.service.satelite.SateliteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.http.HttpStatus.OK;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "/api/v1/satelite")
 public class SateliteController {
 
-    private SateliteService service;
-
-    @ResponseStatus(OK)
-    @GetMapping
-    public Satelite findSatelite() {
-       return service.findSatelite();
-    }
+//    private SateliteService service;
+//
+//    @ResponseStatus(OK)
+//    @GetMapping
+//    public Satelite findSatelite() {
+//       return service.findSatelite();
+//    }
 
 }

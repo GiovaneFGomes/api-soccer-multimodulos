@@ -1,10 +1,10 @@
 package com.giovane.soccer.service.team;
 
 import java.util.List;
-import com.giovane.soccer.dto.TeamRequestDto;
-import com.giovane.soccer.dto.TeamResponseDto;
-import com.giovane.soccer.entity.team.Team;
-import com.giovane.soccer.TeamRepository;
+import com.giovane.soccer.model.dto.TeamRequestDto;
+import com.giovane.soccer.model.dto.TeamResponseDto;
+import com.giovane.soccer.model.entity.Team;
+import com.giovane.soccer.repository.TeamRepository;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import com.giovane.soccer.mapper.TeamMapper;
 import lombok.AllArgsConstructor;

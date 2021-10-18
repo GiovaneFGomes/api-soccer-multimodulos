@@ -1,7 +1,7 @@
 package com.giovane.soccer.service.team;
 
-import com.giovane.soccer.dto.TeamRequestDto;
-import com.giovane.soccer.dto.TeamResponseDto;
+import com.giovane.soccer.model.dto.TeamRequestDto;
+import com.giovane.soccer.model.dto.TeamResponseDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import java.util.List;

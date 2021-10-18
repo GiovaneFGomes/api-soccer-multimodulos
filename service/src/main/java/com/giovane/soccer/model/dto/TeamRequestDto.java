@@ -1,8 +1,13 @@
-package com.giovane.soccer.dto;
+package com.giovane.soccer.model.dto;
 
-import lombok.*;
-import javax.validation.constraints.*;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
