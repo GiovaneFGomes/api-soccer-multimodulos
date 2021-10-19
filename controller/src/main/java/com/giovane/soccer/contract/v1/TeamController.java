@@ -1,8 +1,14 @@
 package com.giovane.soccer.contract.v1;
 
 import java.util.List;
-import com.giovane.soccer.model.dto.TeamRequestDto;
-import com.giovane.soccer.model.dto.TeamResponseDto;
+
+import com.giovane.soccer.contract.facade.TeamControllerFacade;
+import com.giovane.soccer.contract.facade.TeamControllerImpl;
+import com.giovane.soccer.mapper.response.TeamResponseMapper;
+import com.giovane.soccer.model.request.TeamRequestController;
+import com.giovane.soccer.model.request.TeamRequestService;
+import com.giovane.soccer.model.response.TeamResponseController;
+import com.giovane.soccer.model.response.TeamResponseService;
 import com.giovane.soccer.service.team.TeamServiceFacade;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -15,19 +21,21 @@ import static org.springframework.http.HttpStatus.*;
 @RequestMapping(value = "/api/v1/soccer/team")
 public class TeamController {
 
+    private final TeamControllerFacade facade;
+
     private final TeamServiceFacade teamService;
 
     @ResponseStatus(CREATED)
     @PostMapping
     @TeamSaveStandardsCode
-    public TeamResponseDto saveTeam(@RequestBody @Valid TeamRequestDto team) {
-        return teamService.saveTeam(team);
+    public TeamResponseController saveTeam(@RequestBody @Valid TeamRequestController team) {
+       return facade.saveTeam(team);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping(path = "/{id}")
     @TeamPutStandardCode
-    public TeamResponseDto updateTeamById(@RequestBody @Valid TeamRequestDto team, @PathVariable("id") Integer id) {
+    public TeamResponseService updateTeamById(@RequestBody @Valid TeamRequestService team, @PathVariable("id") Integer id) {
         return teamService.updateTeamById(team, id);
     }
 
@@ -41,14 +49,14 @@ public class TeamController {
     @ResponseStatus(OK)
     @GetMapping(path = "/{id}")
     @TeamGetIdStandardCode
-    public TeamResponseDto findTeamById(@PathVariable("id") Integer id) {
+    public TeamResponseService findTeamById(@PathVariable("id") Integer id) {
         return teamService.findTeamById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping(path = "/findAll")
     @TeamGetAllStandardCode
-    public List<TeamResponseDto> findAllTeams() {
+    public List<TeamResponseService> findAllTeams() {
         return teamService.findAllTeams();
     }
 

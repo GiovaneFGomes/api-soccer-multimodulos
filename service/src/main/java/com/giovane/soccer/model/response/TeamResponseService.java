@@ -1,4 +1,4 @@
-package com.giovane.soccer.model.dto;
+package com.giovane.soccer.model.response;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Data
-public class TeamResponseDto {
+public class TeamResponseService {
 
     @ApiModelProperty(example = "1")
     private Integer id;

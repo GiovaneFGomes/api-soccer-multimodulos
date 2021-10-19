@@ -1,4 +1,4 @@
-package com.giovane.soccer.model.dto;
+package com.giovane.soccer.model.request;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Builder
 @Data
-public class TeamRequestDto {
+public class TeamRequestController {
 
     @ApiModelProperty(hidden = true)
     private Integer id;

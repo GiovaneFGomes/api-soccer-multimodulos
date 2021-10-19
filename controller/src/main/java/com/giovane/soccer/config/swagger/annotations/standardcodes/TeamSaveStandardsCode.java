@@ -1,7 +1,8 @@
 package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
-import com.giovane.soccer.model.dto.TeamResponseDto;
+
+import com.giovane.soccer.model.response.TeamResponseService;
 import io.swagger.annotations.*;
 import java.lang.annotation.RetentionPolicy;
 import static java.lang.annotation.ElementType.*;
@@ -11,7 +12,7 @@ import static com.giovane.soccer.config.swagger.annotations.constants.TeamConsta
 @Target({ METHOD, ANNOTATION_TYPE, TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @ApiResponses(value = {
-        @ApiResponse(code = 201, message = "Team was created", response = TeamResponseDto.class),
+        @ApiResponse(code = 201, message = "Team was created", response = TeamResponseService.class),
         @ApiResponse(code = 400, message = "Body or request did not respect the constraints"),
 })
 @ApiImplicitParams({

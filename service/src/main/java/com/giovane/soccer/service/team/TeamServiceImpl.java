@@ -1,7 +1,7 @@
 package com.giovane.soccer.service.team;
 
-import com.giovane.soccer.model.dto.TeamRequestDto;
-import com.giovane.soccer.model.dto.TeamResponseDto;
+import com.giovane.soccer.model.request.TeamRequestService;
+import com.giovane.soccer.model.response.TeamResponseService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -12,11 +12,11 @@ public class TeamServiceImpl implements TeamServiceFacade {
 
     private final TeamService teamService;
 
-    public TeamResponseDto saveTeam(TeamRequestDto team) {
+    public TeamResponseService saveTeam(TeamRequestService team) {
         return teamService.saveTeam(team);
     }
 
-    public TeamResponseDto updateTeamById(TeamRequestDto team, Integer id) {
+    public TeamResponseService updateTeamById(TeamRequestService team, Integer id) {
         return teamService.updateTeamById(team, id);
     }
 
@@ -24,11 +24,11 @@ public class TeamServiceImpl implements TeamServiceFacade {
         teamService.deleteTeamById(id);
     }
 
-    public TeamResponseDto findTeamById(Integer id) {
+    public TeamResponseService findTeamById(Integer id) {
         return teamService.findTeamById(id);
     }
 
-    public List<TeamResponseDto> findAllTeams() {
+    public List<TeamResponseService> findAllTeams() {
         return teamService.findAllTeams();
     }
 
