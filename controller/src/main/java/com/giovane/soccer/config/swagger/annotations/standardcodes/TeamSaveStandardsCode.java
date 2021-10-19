@@ -1,8 +1,6 @@
 package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
-
-import com.giovane.soccer.exceptions.details.ExceptionDetailsBadRequest;
 import com.giovane.soccer.model.dto.TeamResponseDto;
 import io.swagger.annotations.*;
 import java.lang.annotation.RetentionPolicy;
@@ -14,10 +12,7 @@ import static com.giovane.soccer.config.swagger.annotations.constants.TeamConsta
 @Retention(RetentionPolicy.RUNTIME)
 @ApiResponses(value = {
         @ApiResponse(code = 201, message = "Team was created", response = TeamResponseDto.class),
-        @ApiResponse(code = 400, message = "An incorrect request has been sent", response = ExceptionDetailsBadRequest.class),
-//      @ApiResponse(code = 400, message = "Body did not respect the constraints"),
-        @ApiResponse(code = 400, message = "Body should have a minimum of 3 and a maximum of 40 or 50 characters"),
-        @ApiResponse(code = 400, message = "Body was blank"),
+        @ApiResponse(code = 400, message = "Body or request did not respect the constraints"),
 })
 @ApiImplicitParams({
         @ApiImplicitParam(name = "team", required = true,  value = TEAM_DESCRIPTION_PARAM)
