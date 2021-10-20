@@ -3,6 +3,7 @@ package com.giovane.soccer.service.team;
 import java.util.List;
 
 import com.giovane.soccer.mapper.request.TeamRequestMapper;
+import com.giovane.soccer.mapper.response.TeamResponseMapper;
 import com.giovane.soccer.model.entity.TeamEntity;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseService;
@@ -10,7 +11,6 @@ import com.giovane.soccer.repository.TeamRepository;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import static com.giovane.soccer.mapper.request.TeamRequestMapper.toTeamEntity;
 import static com.giovane.soccer.mapper.response.TeamResponseMapper.toTeamServiceResponse;
 
@@ -22,8 +22,7 @@ public class TeamService {
 
     public TeamResponseService saveTeam(TeamRequestService team) {
         TeamEntity teamEntity = toTeamEntity(team);
-        TeamEntity teamSave = teamRepository.save(teamEntity);
-        return toTeamServiceResponse(teamSave);
+        return toTeamServiceResponse(teamRepository.save(teamEntity));
     }
 
     public TeamResponseService updateTeamById(TeamRequestService team, Integer id){
@@ -47,10 +46,10 @@ public class TeamService {
         return toTeamServiceResponse(teamId);
     }
 
-//    public List<TeamResponseService> findAllTeams() {
-//        return teamRepository.findAll().stream()
-//                .map(TeamRequestMapper.INSTANCE::toTeamResponseDto)
-//                        .toList();
-//    }
+    public List<TeamResponseService> findAllTeams() {
+        return teamRepository.findAll().stream()
+                .map(TeamResponseMapper::toTeamServiceResponse)
+                .toList();
+    }
 
 }
