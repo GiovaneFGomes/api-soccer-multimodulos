@@ -2,8 +2,7 @@ package com.giovane.soccer.service.team;
 
 import java.util.List;
 
-import com.giovane.soccer.mapper.request.TeamRequestMapper;
-import com.giovane.soccer.mapper.response.TeamResponseMapper;
+import com.giovane.soccer.mapper.response.TeamServiceResponseMapper;
 import com.giovane.soccer.model.entity.TeamEntity;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseService;
@@ -11,8 +10,8 @@ import com.giovane.soccer.repository.TeamRepository;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import static com.giovane.soccer.mapper.request.TeamRequestMapper.toTeamEntity;
-import static com.giovane.soccer.mapper.response.TeamResponseMapper.toTeamServiceResponse;
+import static com.giovane.soccer.mapper.request.TeamServiceRequestMapper.toTeamEntity;
+import static com.giovane.soccer.mapper.response.TeamServiceResponseMapper.toTeamServiceResponse;
 
 @AllArgsConstructor
 @Service
@@ -48,7 +47,7 @@ public class TeamService {
 
     public List<TeamResponseService> findAllTeams() {
         return teamRepository.findAll().stream()
-                .map(TeamResponseMapper::toTeamServiceResponse)
+                .map(TeamServiceResponseMapper::toTeamServiceResponse)
                 .toList();
     }
 

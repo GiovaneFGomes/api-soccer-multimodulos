@@ -6,10 +6,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface TeamResponseMapper {
+public interface TeamServiceResponseMapper {
 
     static TeamResponseService toTeamServiceResponse(TeamEntity team){
-        return Mappers.getMapper(TeamResponseMapper.class)
+        return Mappers.getMapper(TeamServiceResponseMapper.class)
                 .mapperResponse(team);
     }
 

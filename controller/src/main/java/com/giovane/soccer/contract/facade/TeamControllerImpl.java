@@ -1,7 +1,7 @@
 package com.giovane.soccer.contract.facade;
 
-import com.giovane.soccer.mapper.request.TeamRequestMapper;
-import com.giovane.soccer.mapper.response.TeamResponseMapper;
+import com.giovane.soccer.mapper.request.TeamControllerRequestMapper;
+import com.giovane.soccer.mapper.response.TeamControllerResponseMapper;
 import com.giovane.soccer.model.request.TeamRequestController;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseController;
@@ -18,15 +18,15 @@ public class TeamControllerImpl implements TeamControllerFacade {
     private final TeamServiceFacade facade;
 
     public TeamResponseController saveTeam(TeamRequestController team) {
-        TeamRequestService teamService = TeamRequestMapper.toTeamService(team);
+        TeamRequestService teamService = TeamControllerRequestMapper.toTeamService(team);
         TeamResponseService teamController = facade.saveTeam(teamService);
-        return TeamResponseMapper.toControllerResponse(teamController);
+        return TeamControllerResponseMapper.toControllerResponse(teamController);
     }
 
     public TeamResponseController updateTeamById(TeamRequestController team, Integer id) {
-        TeamRequestService teamService = TeamRequestMapper.toTeamService(team);
+        TeamRequestService teamService = TeamControllerRequestMapper.toTeamService(team);
         TeamResponseService teamController = facade.updateTeamById(teamService, id);
-        return TeamResponseMapper.toControllerResponse(teamController);
+        return TeamControllerResponseMapper.toControllerResponse(teamController);
     }
 
     public void deleteTeamById(Integer id) {
@@ -35,12 +35,12 @@ public class TeamControllerImpl implements TeamControllerFacade {
 
     public TeamResponseController findTeamById(Integer id) {
         TeamResponseService teamController = facade.findTeamById(id);
-        return TeamResponseMapper.toControllerResponse(teamController);
+        return TeamControllerResponseMapper.toControllerResponse(teamController);
     }
 
     public List<TeamResponseController> findAllTeams() {
         return facade.findAllTeams().stream()
-                .map(TeamResponseMapper::toControllerResponse)
+                .map(TeamControllerResponseMapper::toControllerResponse)
                 .toList();
     }
 

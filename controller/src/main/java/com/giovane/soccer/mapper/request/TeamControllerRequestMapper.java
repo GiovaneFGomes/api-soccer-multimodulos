@@ -6,13 +6,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface TeamRequestMapper {
+public interface TeamControllerRequestMapper {
 
     static TeamRequestService toTeamService(TeamRequestController teamRequest){
-        return Mappers.getMapper(TeamRequestMapper.class)
-                .mapperRequest(teamRequest);
+        return Mappers.getMapper(TeamControllerRequestMapper.class)
+                .mapper(teamRequest);
     }
 
-    TeamRequestService mapperRequest(TeamRequestController team);
+    TeamRequestService mapper(TeamRequestController team);
 
 }
