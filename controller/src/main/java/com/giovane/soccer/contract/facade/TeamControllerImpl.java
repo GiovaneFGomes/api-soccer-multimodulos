@@ -6,7 +6,7 @@ import com.giovane.soccer.model.request.TeamRequestController;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseController;
 import com.giovane.soccer.model.response.TeamResponseService;
-import com.giovane.soccer.service.team.TeamServiceFacade;
+import com.giovane.soccer.service.TeamServiceFacade;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import java.util.List;

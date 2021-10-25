@@ -1,5 +1,6 @@
-package com.giovane.soccer.service.team;
+package com.giovane.soccer.service;
 
+import com.giovane.soccer.LeagueClient;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseService;
 

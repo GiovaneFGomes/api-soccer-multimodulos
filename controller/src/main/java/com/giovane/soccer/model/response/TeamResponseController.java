@@ -1,9 +1,7 @@
 package com.giovane.soccer.model.response;
 
+import lombok.*;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @AllArgsConstructor

@@ -1,5 +1,6 @@
-package com.giovane.soccer.service.team;
+package com.giovane.soccer.service;
 
+import com.giovane.soccer.LeagueClient;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseService;
 import lombok.AllArgsConstructor;
@@ -10,26 +11,26 @@ import java.util.List;
 @Component
 public class TeamServiceImpl implements TeamServiceFacade {
 
-    private final TeamService teamService;
+    private final TeamService service;
 
     public TeamResponseService saveTeam(TeamRequestService team) {
-        return teamService.saveTeam(team);
+        return service.saveTeam(team);
     }
 
     public TeamResponseService updateTeamById(TeamRequestService team, Integer id) {
-        return teamService.updateTeamById(team, id);
+        return service.updateTeamById(team, id);
     }
 
     public void deleteTeamById(Integer id) {
-        teamService.deleteTeamById(id);
+        service.deleteTeamById(id);
     }
 
     public TeamResponseService findTeamById(Integer id) {
-        return teamService.findTeamById(id);
+        return service.findTeamById(id);
     }
 
     public List<TeamResponseService> findAllTeams() {
-        return teamService.findAllTeams();
+        return service.findAllTeams();
     }
 
 }
