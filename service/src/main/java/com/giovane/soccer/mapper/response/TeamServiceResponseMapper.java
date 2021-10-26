@@ -10,9 +10,9 @@ public interface TeamServiceResponseMapper {
 
     static TeamResponseService toTeamServiceResponse(TeamEntity team){
         return Mappers.getMapper(TeamServiceResponseMapper.class)
-                .mapperResponse(team);
+                .mapper(team);
     }
 
-    TeamResponseService mapperResponse(TeamEntity team);
+    TeamResponseService mapper(TeamEntity team);
 
 }

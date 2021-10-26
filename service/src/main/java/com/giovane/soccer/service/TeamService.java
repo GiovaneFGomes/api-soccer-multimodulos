@@ -1,8 +1,6 @@
 package com.giovane.soccer.service;
 
 import java.util.List;
-
-import com.giovane.soccer.LeagueClient;
 import com.giovane.soccer.mapper.response.TeamServiceResponseMapper;
 import com.giovane.soccer.model.entity.TeamEntity;
 import com.giovane.soccer.model.request.TeamRequestService;
@@ -19,8 +17,6 @@ import static com.giovane.soccer.mapper.response.TeamServiceResponseMapper.toTea
 public class TeamService {
 
     private final TeamRepository teamRepository;
-
-    private final LeagueClient client;
 
     public TeamResponseService saveTeam(TeamRequestService team) {
         TeamEntity teamEntity = toTeamEntity(team);
