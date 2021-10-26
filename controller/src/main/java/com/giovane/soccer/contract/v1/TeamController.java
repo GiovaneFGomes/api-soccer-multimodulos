@@ -1,12 +1,12 @@
 package com.giovane.soccer.contract.v1;
 
 import java.util.List;
+import javax.validation.Valid;
+import lombok.AllArgsConstructor;
 import com.giovane.soccer.contract.facade.TeamControllerFacade;
 import com.giovane.soccer.model.request.TeamRequestController;
 import com.giovane.soccer.model.response.TeamResponseController;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
-import lombok.AllArgsConstructor;
 import com.giovane.soccer.config.swagger.annotations.standardcodes.*;
 import static org.springframework.http.HttpStatus.*;
 

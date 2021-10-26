@@ -1,9 +1,7 @@
-package com.giovane.soccer.service;
+package com.giovane.soccer.facade;
 
-import com.giovane.soccer.LeagueClient;
 import com.giovane.soccer.model.request.TeamRequestService;
 import com.giovane.soccer.model.response.TeamResponseService;
-
 import java.util.List;
 
 public interface TeamServiceFacade {

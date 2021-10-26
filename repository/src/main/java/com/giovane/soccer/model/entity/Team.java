@@ -12,11 +12,11 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
+@Builder
 @Data
 @Entity
 @Table(name = "teams")
-public class TeamEntity {
+public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
