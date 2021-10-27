@@ -30,7 +30,6 @@ allprojects {
 		implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 		implementation 'io.springfox:springfox-swagger2:2.9.2'
 		implementation 'io.springfox:springfox-swagger-ui:2.9.2'
-		implementation 'com.fasterxml.jackson.core:jackson-databind:2.0.1'
 		compileOnly 'org.projectlombok:lombok:1.18.22'
 		runtimeOnly 'org.postgresql:postgresql:42.2.24.jre7'
 		runtimeOnly 'com.h2database:h2:1.4.200'
