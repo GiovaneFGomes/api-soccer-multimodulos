@@ -1,5 +1,7 @@
 package com.giovane.soccer.controller;
 
+import com.giovane.soccer.LeagueClient;
+import com.giovane.soccer.model.entity.League;
 import com.giovane.soccer.service.LeagueService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,14 +12,14 @@ import static org.springframework.http.HttpStatus.OK;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("api/v1/league")
+@RequestMapping("api/v1")
 public class LeagueController {
 
-    private final LeagueService service;
+    private final LeagueClient service;
 
     @ResponseStatus(OK)
-    @GetMapping
+    @GetMapping("/league")
     public void findLeague() {
-        service.findLeague();
+        service.consumerApi();
     }
 }
