@@ -1,4 +1,4 @@
-package com.giovane.soccer.model.entity;
+package com.giovane.soccer.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,14 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
+@Entity
 public class League {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer leagueId;
+    private Integer id;
     private String name;
 }

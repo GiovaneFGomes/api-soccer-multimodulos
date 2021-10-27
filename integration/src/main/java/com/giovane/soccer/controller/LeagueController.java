@@ -1,7 +1,6 @@
 package com.giovane.soccer.controller;
 
-import com.giovane.soccer.LeagueClient;
-import com.giovane.soccer.model.entity.League;
+import com.giovane.soccer.model.League;
 import com.giovane.soccer.service.LeagueService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +14,11 @@ import static org.springframework.http.HttpStatus.OK;
 @RequestMapping("api/v1")
 public class LeagueController {
 
-    private final LeagueClient service;
+    private final LeagueService service;
 
     @ResponseStatus(OK)
     @GetMapping("/league")
-    public void findLeague() {
-        service.consumerApi();
+    public League findLeague() {
+        return service.findLeagues();
     }
 }
