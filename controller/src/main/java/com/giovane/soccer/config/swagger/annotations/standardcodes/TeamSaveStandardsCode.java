@@ -2,7 +2,7 @@ package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
 
-import com.giovane.soccer.model.response.TeamResponseService;
+import com.giovane.soccer.model.team.response.TeamResponseService;
 import io.swagger.annotations.*;
 import java.lang.annotation.RetentionPolicy;
 import static java.lang.annotation.ElementType.*;

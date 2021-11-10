@@ -1,25 +1,19 @@
-package com.giovane.soccer.model.entity;
+package com.giovane.soccer.model.league.response;
 
+import com.giovane.soccer.model.entity.Team;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.*;
+
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-@Entity
-@Table(name = "leagues")
-public class League {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class LeagueResponseController {
     private Integer id;
-
     private String name;
-
-    @OneToMany(mappedBy = "league")
     List<Team> team;
 }

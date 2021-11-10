@@ -2,7 +2,6 @@ package com.giovane.soccer.model.entity;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +23,7 @@ public class Team {
     @Column(name = "name_country")
     private String country;
 
-    @OneToMany(mappedBy = "team")
-    private List<League> league;
+    @ManyToOne
+    @JoinColumn(name = "league_id")
+    private League league;
 }
