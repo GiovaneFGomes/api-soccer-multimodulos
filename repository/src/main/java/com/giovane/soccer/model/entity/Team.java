@@ -2,6 +2,7 @@ package com.giovane.soccer.model.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,7 +11,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "teams")
 public class Team {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -24,4 +24,6 @@ public class Team {
     @Column(name = "name_country")
     private String country;
 
+    @OneToMany(mappedBy = "team")
+    private List<League> league;
 }
