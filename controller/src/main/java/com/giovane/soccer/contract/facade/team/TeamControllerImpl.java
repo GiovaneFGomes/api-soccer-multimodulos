@@ -1,7 +1,8 @@
 package com.giovane.soccer.contract.facade.team;
 
 import java.util.List;
-import com.giovane.soccer.facade.team.TeamServiceFacade;
+
+import com.giovane.soccer.facade.team.TeamFacade;
 import com.giovane.soccer.mapper.team.response.TeamControllerResponseMapper;
 import com.giovane.soccer.model.team.request.TeamRequestController;
 import com.giovane.soccer.model.team.request.TeamRequestService;
@@ -16,7 +17,7 @@ import static com.giovane.soccer.mapper.team.response.TeamControllerResponseMapp
 @Component
 public class TeamControllerImpl implements TeamControllerFacade {
 
-    private final TeamServiceFacade facade;
+    private final TeamFacade facade;
 
     public TeamResponseController saveTeam(TeamRequestController team) {
         TeamRequestService teamSave = toTeamService(team);
