@@ -1,23 +1,22 @@
 package com.giovane.soccer.contract.facade.team;
 
-import java.util.List;
-
-import com.giovane.soccer.facade.team.TeamFacade;
+import com.giovane.soccer.facade.team.TeamServiceFacade;
 import com.giovane.soccer.mapper.team.response.TeamControllerResponseMapper;
 import com.giovane.soccer.model.team.request.TeamRequestController;
 import com.giovane.soccer.model.team.request.TeamRequestService;
 import com.giovane.soccer.model.team.response.TeamResponseController;
+import com.giovane.soccer.model.team.response.TeamResponseService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import com.giovane.soccer.model.team.response.TeamResponseService;
+import java.util.List;
 import static com.giovane.soccer.mapper.team.request.TeamControllerRequestMapper.toTeamService;
 import static com.giovane.soccer.mapper.team.response.TeamControllerResponseMapper.toTeamControllerResponse;
 
 @AllArgsConstructor
 @Component
-public class TeamControllerImpl implements TeamControllerFacade {
+public class TeamController {
 
-    private final TeamFacade facade;
+    private final TeamServiceFacade facade;
 
     public TeamResponseController saveTeam(TeamRequestController team) {
         TeamRequestService teamSave = toTeamService(team);
@@ -47,3 +46,5 @@ public class TeamControllerImpl implements TeamControllerFacade {
     }
 
 }
+
+

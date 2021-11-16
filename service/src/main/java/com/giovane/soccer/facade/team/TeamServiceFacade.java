@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @AllArgsConstructor
-public class TeamFacade {
+public class TeamServiceFacade {
 
     private final TeamService service;
 

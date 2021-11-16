@@ -2,19 +2,33 @@ package com.giovane.soccer.contract.facade.team;
 
 import com.giovane.soccer.model.team.request.TeamRequestController;
 import com.giovane.soccer.model.team.response.TeamResponseController;
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 
-public interface TeamControllerFacade {
+@AllArgsConstructor
+public class TeamControllerFacade {
 
-    TeamResponseController saveTeam(TeamRequestController team);
+    private final TeamController controller;
 
-    TeamResponseController updateTeamById(TeamRequestController team, Integer id);
+    public TeamResponseController saveTeam(TeamRequestController team) {
+        return controller.saveTeam(team);
+    }
 
-    void deleteTeamById(Integer id);
+    public TeamResponseController updateTeamById(TeamRequestController team, Integer id) {
+        return controller.updateTeamById(team, id);
+    }
 
-    TeamResponseController findTeamById(Integer id);
+    public void deleteTeamById(Integer id) {
+        controller.deleteTeamById(id);
+    }
 
-    List<TeamResponseController> findAllTeams();
+    public TeamResponseController findTeamById(Integer id) {
+        return controller.findTeamById(id);
+    }
+
+    public List<TeamResponseController> findAllTeams() {
+        return controller.findAllTeams();
+    }
 
 }
