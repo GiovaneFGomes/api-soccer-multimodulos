@@ -14,7 +14,7 @@ import static com.giovane.soccer.mapper.team.response.TeamControllerResponseMapp
 
 @AllArgsConstructor
 @Component
-public class TeamController {
+public class TeamControllerFacadeImpl {
 
     private final TeamServiceFacade facade;
 

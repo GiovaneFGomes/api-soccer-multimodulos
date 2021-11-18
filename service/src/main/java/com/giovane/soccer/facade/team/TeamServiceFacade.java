@@ -3,10 +3,12 @@ package com.giovane.soccer.facade.team;
 import com.giovane.soccer.model.team.request.TeamRequestService;
 import com.giovane.soccer.model.team.response.TeamResponseService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
-
 @AllArgsConstructor
+@Component
 public class TeamServiceFacade {
 
     private final TeamService service;
