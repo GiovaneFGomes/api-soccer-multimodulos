@@ -2,7 +2,7 @@ package com.giovane.soccer.config.swagger.annotations.standardcodes;
 
 import java.lang.annotation.*;
 
-import com.giovane.soccer.model.team.response.TeamResponseService;
+import com.giovane.soccer.service.model.team.response.TeamResponseService;
 import io.swagger.annotations.*;
 import com.giovane.soccer.exceptions.details.ExceptionDetailsBadRequest;
 import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;

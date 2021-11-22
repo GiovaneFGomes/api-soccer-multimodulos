@@ -29,6 +29,7 @@ allprojects {
 		implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.5'
 
 		implementation 'org.springframework.cloud:spring-cloud-config-server:3.0.5'
+//		implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 
 		implementation 'com.fasterxml.jackson.core:jackson-core:2.12.3'
 		implementation 'org.mapstruct:mapstruct:1.4.2.Final'
