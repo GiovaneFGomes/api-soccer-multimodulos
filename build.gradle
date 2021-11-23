@@ -24,14 +24,12 @@ allprojects {
 	}
 
 	dependencies {
+    //	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:2.5.6'
+
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.5'
 		implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
 		implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.5'
-
 		implementation 'org.springframework.cloud:spring-cloud-config-server:3.0.5'
-//		implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
-
-		implementation 'com.fasterxml.jackson.core:jackson-core:2.12.3'
 		implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 		implementation 'io.springfox:springfox-swagger2:2.9.2'
 		implementation 'io.springfox:springfox-swagger-ui:2.9.2'
@@ -39,8 +37,8 @@ allprojects {
 		runtimeOnly 'org.postgresql:postgresql:42.2.24.jre7'
 		runtimeOnly 'com.h2database:h2:1.4.200'
 		annotationProcessor 'org.projectlombok:lombok:1.18.22'
-		testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
 		annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
 	}
 
 	test {

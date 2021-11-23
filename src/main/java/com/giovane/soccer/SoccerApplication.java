@@ -2,10 +2,9 @@ package com.giovane.soccer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
 
-// anotacao para executar o servidor em uma application Spring Boot
-@EnableConfigServer
+// This annotation makes your Spring Boot application act as a Configuration Server
+//@EnableConfigServer
 @SpringBootApplication
 public class SoccerApplication {
 	public static void main(String[] args) {

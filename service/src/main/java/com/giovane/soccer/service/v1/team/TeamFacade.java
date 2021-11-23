@@ -4,7 +4,6 @@ import com.giovane.soccer.service.model.team.request.TeamRequestService;
 import com.giovane.soccer.service.model.team.response.TeamResponseService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @AllArgsConstructor

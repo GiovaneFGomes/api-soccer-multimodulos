@@ -1,6 +1,5 @@
 package com.giovane.soccer.contract.model.response;
 
-import com.giovane.soccer.entity.league.League;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +23,5 @@ public class TeamResponseController {
 
     @ApiModelProperty(example = "Spain")
     private String country;
-
-    private League league;
 
 }

@@ -3,5 +3,3 @@ rootProject.name = 'soccer'
 include 'repository'
 include 'service'
 include 'controller'
-include 'integration'
-

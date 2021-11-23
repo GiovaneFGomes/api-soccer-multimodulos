@@ -1,6 +1,5 @@
 package com.giovane.soccer.entity.team;
 
-import com.giovane.soccer.entity.league.League;
 import lombok.*;
 import javax.persistence.*;
 
@@ -24,7 +23,4 @@ public class Team {
     @Column(name = "name_country")
     private String country;
 
-    @ManyToOne
-    @JoinColumn(name = "league_id")
-    private League league;
 }

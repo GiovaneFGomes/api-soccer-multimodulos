@@ -1,6 +1,5 @@
 package com.giovane.soccer.contract.model.request;
 
-import com.giovane.soccer.entity.league.League;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,8 +32,6 @@ public class TeamRequestController {
     @Size(min = 3, max = 50, message = "Min 3 and Max 40 characters.")
     @ApiModelProperty(example = "Spain")
     private String country;
-
-    private League league;
 
     public void setName(String name) {
         this.name = name.strip();
