@@ -22,5 +22,4 @@ public class Team {
 
     @Column(name = "name_country")
     private String country;
-
 }
